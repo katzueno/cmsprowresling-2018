@@ -10,13 +10,6 @@ class PageTheme extends Theme // implements ThemeProviderInterface
     {
         //$this->providesAsset('javascript', 'bootstrap/*');
         $this->providesAsset('javascript', 'jquery');
-
-        $this->providesAsset('css', 'blocks/event_list');
-
-        $this->requireAsset('css', 'font-awesome');
-        $this->requireAsset('javascript', 'picturefill');
-        $this->requireAsset('javascript-conditional', 'html5-shiv');
-        $this->requireAsset('javascript-conditional', 'respond');
     }
 
     protected $pThemeGridFrameworkHandle = 'bootstrap3';
