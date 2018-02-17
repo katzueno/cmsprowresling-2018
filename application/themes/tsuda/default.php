@@ -444,8 +444,8 @@ View::element('header_required', [
         }
         $mainSpf = $c->getAttribute('main_sp');
         if ($mainSpf) {
-            //$mainSpSrc = $mainf->getThumbnailURL('main_sp');
-            $mainSpSrc = $mainf->getRelativePath();
+            $mainSpSrc = $mainSpf->getThumbnailURL('main_sp');
+            //$mainSpSrc = $mainSpf->getRelativePath();
         } else {
             $mainSpSrc = "/prospect/hak1k3000000gxks-img/mainsp.jpg";
         }
