@@ -4,7 +4,7 @@ namespace Application\Theme\Tsuda;
 use Concrete\Core\Area\Layout\Preset\Provider\ThemeProviderInterface;
 use Concrete\Core\Page\Theme\Theme;
 
-class PageTheme extends Theme implements ThemeProviderInterface
+class PageTheme extends Theme // implements ThemeProviderInterface
 {
     public function registerAssets()
     {
