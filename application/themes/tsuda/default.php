@@ -19,7 +19,8 @@ View::element('header_required', [
 </head>
 
 <body class="guide prospect">
-<div id="wrap" class="<?php echo $c->getPageWrapperClass()?>">
+<div class="<?php echo $c->getPageWrapperClass()?>">
+<div id="wrap">
 
 	
 
@@ -443,7 +444,8 @@ View::element('header_required', [
         }
         $mainSpf = $c->getAttribute('main_sp');
         if ($mainSpf) {
-            $mainSpSrc = $mainf->getThumbnailURL('main_sp');
+            //$mainSpSrc = $mainf->getThumbnailURL('main_sp');
+            $mainSpSrc = $mainf->getRelativePath();
         } else {
             $mainSpSrc = "/prospect/hak1k3000000gxks-img/mainsp.jpg";
         }
@@ -795,25 +797,22 @@ View::element('header_required', [
 		<div class="section campus" id="campus">
 			<div class="section_inner">
 				<ul class="bg_list" id="js-bg_list">
-					
-						<li style="background-image: url(/prospect/hak1k3000000gxks-img/image1.jpg);"></li>
-					
-						<li style="background-image: url(/prospect/hak1k3000000gxks-img/image2.jpg);"></li>
-					
-						<li style="background-image: url(/prospect/hak1k3000000gxks-img/image3.jpg);"></li>
-					
-						<li style="background-image: url(/prospect/hak1k3000000gxks-img/image4.jpg);"></li>
-					
-						<li style="background-image: url(/prospect/hak1k3000000gxks-img/image5.jpg);"></li>
-					
-						<li style="background-image: url(/prospect/hak1k3000000gxks-img/image6.jpg);"></li>
-					
-						<li style="background-image: url(/prospect/hak1k3000000gxks-img/image7.jpg);"></li>
-					
-						<li style="background-image: url(/prospect/hak1k3000000gxks-img/image8.jpg);"></li>
-					
-						<li style="background-image: url(/prospect/hak1k3000000gxks-img/image9.jpg);"></li>
-					
+
+                		<?php
+                        $i = 1;
+                        $campus_life_srcs = [];
+                        for ($i=1; $i<10; $i++) {
+                            $campus_life_f = null;
+                            $campus_life_f = $c->getAttribute('campus_life_image_' . $i);
+                            if ($campus_life_f) {
+                                $campus_life_srcs[] = $campus_life_f->getThumbnailURL('campus_life');
+                            }
+                        }
+                        foreach ($campus_life_srcs as $campus_life_src) {
+                            echo '<li style="background-image: url(' . $campus_life_src . ');"></li>';
+                            echo "\n";
+                        }
+                        ?>					
 				</ul>
 				<div class="container">
 					<h2 class="section_hdg"><span lang="en">CAMPUS</span><span lang="ja">キャンパスライフ</span></h2>
@@ -1144,6 +1143,7 @@ View::element('header_required', [
 		</div>
 	</div><!-- / .copy_box -->
 </div><!-- / #ft_sp -->
+</div>
 <!--/body 前 -->
 <?php View::element('footer_required'); ?>
 <script type="text/javascript" src="/js/vtngq900000002r1.js"></script>
