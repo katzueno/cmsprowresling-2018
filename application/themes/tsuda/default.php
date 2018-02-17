@@ -9,7 +9,12 @@ View::element('header_required', [
     'pageMetaKeywords' => isset($pageMetaKeywords) ? $pageMetaKeywords : ''
 ]);
 ?>
-<?php echo $html->css($view->getStylesheet('main.less')) ?>
+<meta name="viewport" content="width=device-width,user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="/css/vtngq900000002qh.css" media="all and (min-width: 641px)" />
+<link rel="stylesheet" type="text/css" href="/css/vtngq900000002qc.css" media="screen and (min-width: 0px) and (max-width: 640px)" />
+<link rel="stylesheet" type="text/css" href="/css/vtngq900000002q7.css" media="print" />
+<link rel="stylesheet" type="text/css" href="/css/prospect.css" />
+<?php //echo $html->css($view->getStylesheet('main.less')) ?>
 <!-- /head 前 -->
 </head>
 
@@ -429,8 +434,21 @@ View::element('header_required', [
 
 	<div id="ct_area" class="clearfix">
 
-		
-		<div class="section mv" id="js-mv" style="background-image: url(/prospect/hak1k3000000gxks-img/main1.jpg);" data-bg-sp="/prospect/hak1k3000000gxks-img/mainsp.jpg">
+		<?php
+        $mainf = $c->getAttribute('main');
+        if ($mainf) {
+            $mainSrc = $mainf->getThumbnailURL('main_pc');
+        } else {
+            $mainSrc = "/prospect/hak1k3000000gxks-img/main1.jpg";
+        }
+        $mainSpf = $c->getAttribute('main_sp');
+        if ($mainSpf) {
+            $mainSpSrc = $mainf->getThumbnailURL('main_sp');
+        } else {
+            $mainSpSrc = "/prospect/hak1k3000000gxks-img/mainsp.jpg";
+        }
+        ?>
+		<div class="section mv" id="js-mv" style="background-image: url(<?=$mainSrc;?>);" data-bg-sp="<?=$mainSpSrc;?>">
 			<div class="section_inner">
 				<h1 class="copy">
 					<a href="/about/index.html">
@@ -1126,17 +1144,15 @@ View::element('header_required', [
 		</div>
 	</div><!-- / .copy_box -->
 </div><!-- / #ft_sp -->
-<?php View::element('footer_required'); ?>
 <!--/body 前 -->
-<!--
+<?php View::element('footer_required'); ?>
 <script type="text/javascript" src="/js/vtngq900000002r1.js"></script>
 <script type="text/javascript" src="/js/vtngq900000002qw.js"></script>
 <script type="text/javascript" src="/js/vtngq900000002qr.js"></script>
 <script type="text/javascript" src="/js/vtngq900000002qm.js"></script>
 <script type="text/javascript" src="/js/vtngq900000002rb.js"></script>
 <script type="text/javascript" src="/js/vtngq900000002r6.js"></script>
--->
-<script type="text/javascript" src="/js/prospect-compress.js"></script>
+<!--<script type="text/javascript" src="/js/prospect-compress.js"></script> -->
 <script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="/js/vtngq900000002qw.js"></script>
 <script type="text/javascript">
