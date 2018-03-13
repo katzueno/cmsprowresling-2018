@@ -65,22 +65,16 @@ class Controller extends Package
     public function on_start()
     {
         Events::addListener('on_cache_flush', function () {
-            exec('aws cloudfront create-invalidation --distribution-id E1T3JT8104ZPCF --paths /');
-            /*
             $base_path = Core::getApplicationRelativePath() . '/';
             $cloudfront->createInvalidationRequest(array(
                 $base_path . '*',
             ));
-            */
         });
         Events::addListener('on_page_version_approve', function () {
-            exec('aws cloudfront create-invalidation --distribution-id E1T3JT8104ZPCF --paths /');
-            /*
             $base_path = Core::getApplicationRelativePath() . '/';
             $cloudfront->createInvalidationRequest(array(
                 $base_path . '*',
             ));
-            */
         });
     }
 
